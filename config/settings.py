@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'music',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +128,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # set Auth User Model to our custom user
 AUTH_USER_MODEL = 'music.User'
+
+INTERNAL_IPS = [
+    '127.0.0.1'
+]
