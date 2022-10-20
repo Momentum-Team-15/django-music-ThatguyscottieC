@@ -11,9 +11,8 @@ class User(AbstractUser):
 
 class Song(models.Model):
     name = models.CharField(max_length=200)
-    album = models.ForeignKey('Album', on_delete=models.CASCADE)
-    album_cover = models.FileField(null=True, blank=True)
-    artist = models.ForeignKey('Artist', on_delete=models.CASCADE)
+    album = models.ForeignKey(
+        'Album', on_delete=models.CASCADE, related_name='songs')
     song_file = models.FileField(null=True, blank=True)
 
     def __str__(self):
@@ -25,7 +24,7 @@ class Album(models.Model):
     artist = models.ForeignKey('Artist', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
-    album_cover = models.FileField(null=True, blank=True)
+    album_cover = models.ImageField(upload_to='images/', blank=True, null=True)
 
     def __str__(self):
         return f"{self.title} by {self.artist}"

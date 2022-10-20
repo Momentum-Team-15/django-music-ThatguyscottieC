@@ -8,6 +8,7 @@ django = "*"
 django-debug-toolbar = "*"
 django-extensions = "*"
 django-registration-redux = "*"
+pillow = "*"
 
 [dev-packages]
 flake8 = "*"
