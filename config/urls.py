@@ -16,11 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from music import views
+from music.views import HomePageView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('registration.backends.simple.urls')),
     path('', views.index, name='home'),
     path('__debug__/', include('debug_toolbar.urls')),
-    path('albums/<int:pk>', views.album_detail, name='album_detail')
+    path('albums/<int:pk>', views.album_detail, name='album_detail'),
+    path('', HomePageView.as_view(), name='home'),
+    path('album/new', views.create_album, name='create_album'),
 ]
